@@ -163,7 +163,7 @@ ss.setdefault("dest", None)
 colL, colR = st.columns([7,5])
 
 with colL:
-    q = st.text_input("📍 ปลายทาง", placeholder="วางลิงก์ Google Maps / ใส่พิกัด / หรือชื่อสถานที่")
+    q = st.text_input("📍 ปลายทาง", placeholder="ใส่ link google map เท่านั้น")
 
     vehicle_display = st.selectbox("ประเภทรถ", ["🛵 มอเตอร์ไซค์", "🚗 รถยนต์"], index=0)
     ss.vehicle = "MOTORCYCLE" if vehicle_display.startswith("🛵") else "CAR"
