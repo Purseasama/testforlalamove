@@ -195,7 +195,7 @@ with colR:
         layers = [
             pdk.Layer("ScatterplotLayer",
                       data=[{"lat":shop[0],"lon":shop[1]},{"lat":dst[0],"lon":dst[1]}],
-                      get_position='[lon, lat]', get_radius=60, pickable=False),
+                      get_position='[lon, lat]', get_radius=100, pickable=False),
             pdk.Layer("PathLayer",
                       data=[{"path":[[shop[1],shop[0]],[dst[1],dst[0]]]}],
                       get_path="path", width_scale=2, width_min_pixels=2)
