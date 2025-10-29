@@ -17,6 +17,7 @@ from urllib.parse import urlparse
 LALAMOVE_API_KEY = st.secrets.get("LALAMOVE_API_KEY", "YOUR_API_KEY_HERE")
 LALAMOVE_API_SECRET = st.secrets.get("LALAMOVE_API_SECRET", "YOUR_API_SECRET_HERE")
 LALAMOVE_COUNTRY = "TH"
+LALAMOVE_MARKET  = "TH-BKK" 
 LALAMOVE_BASE_URL = "https://rest.sandbox.lalamove.com"  # Use sandbox for testing
 
 # Your shop details
@@ -89,7 +90,9 @@ def _headers(method, url, body):
         "Content-Type": "application/json; charset=UTF-8",
         "Accept": "application/json",
         "X-Request-ID": str(uuid.uuid4()),
+        # Keep country if you like (harmless), but MARKET is the key to fix the 422.
         "X-LLM-Country": LALAMOVE_COUNTRY,
+        "X-LLM-Market": LALAMOVE_MARKET,  # <-- add this line
         "Authorization": f"hmac {LALAMOVE_API_KEY}:{ts}:{sig}",
     }
 
